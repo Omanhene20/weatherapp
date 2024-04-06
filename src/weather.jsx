@@ -1,7 +1,22 @@
-import react from 'react';
+import React,{ useEffect, useState }  from "react";
 import axios from 'axios';
 
-const Weather = () => {
+const Weather = (location) => {
+
+  const [locations, setLocations] = useState({locations:[]});
+
+useEffect(()=>{
+  axios.get('https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=Gk8bYZO84OK83SjTjRjiAgOM2B6BjV26')
+  .then(response =>{
+    setLocations(response.data)
+   
+})})
+let content = locations.locations.map((location, index) => (
+  < weather key={index} {...location} />
+))
+
+
+
   return (
     <div> 
     
@@ -28,15 +43,13 @@ const Weather = () => {
     </div>
 
     </div>
-
-    <p className="lead">Temperature: 30 celsius</p>
+     {content}
+    <p className="lead">Temperature:{location.temperature}</p>
     <p className="location-bar">Location: Saint Louis</p>
-    <p className="wind-bar">Windspeed: Saint Louis</p>
+    <p className="wind-bar">Windspeed: 4.6</p>
     <p className="humidity-bar">time: 2:00pm </p>
     <p className="rain-bar">rainIntensity: 1.05,</p>
-  
-    
-    
+
   </main>
 
   <footer className="mastfoot mt-auto">
@@ -50,6 +63,7 @@ const Weather = () => {
     </div>
    
   )
-};
+}
+;
 
 export default Weather;
