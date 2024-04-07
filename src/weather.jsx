@@ -44,11 +44,11 @@ let content = locations.locations.map((location, index) => (
 
     </div>
      {content}
-    <p className="lead">Temperature:{location.temperature}</p>
+    <p className="lead">Temperature:{locations.temperature}</p>
     <p className="location-bar">Location: Saint Louis</p>
     <p className="wind-bar">Windspeed: 4.6</p>
     <p className="humidity-bar">time: 2:00pm </p>
-    <p className="rain-bar">rainIntensity: 1.05,</p>
+    <p className="rain-bar">rainIntensity: 1.08 </p>
 
   </main>
 
